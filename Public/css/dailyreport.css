@@ -268,36 +268,6 @@ td button.delete-btn {
     #input-table, #data-table, #materials-table {
         font-size: 0.9rem;
     }
-
-    .date-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .date-container input[type="date"], input[type="text"], input[type="number"] {
-        width: 100%;
-    }
-
-    button {
-        width: 100%;
-    }
-
-    #input-table, #data-table, #materials-table {
-        font-size: 0.9rem;
-        display: block;
-        overflow-x: auto;
-    }
-
-    #input-table td, #data-table td, #materials-table td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    #input-table tr, #data-table tr, #materials-table tr {
-        display: block;
-        margin-bottom: 10px;
-    }
 }
 
 .dropdown.hidden {

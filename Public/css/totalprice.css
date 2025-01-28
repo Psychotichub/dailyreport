@@ -46,3 +46,22 @@
         margin-bottom: 10px;
     }
 }
+
+@media (max-width: 480px) {
+    #totalprice-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    #totalprice-table th, #totalprice-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #totalprice-table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

@@ -44,13 +44,14 @@ input:focus, select:focus {
 
 #submit-btn {
     display: inline-block;
-    width: 10%;
+    width: fit-content;
+    height: fit-content;
     margin: 0px auto;
-    padding: 10px;
+    padding: 5px 5px;
     background-color: #007BFF;
     color: rgb(0, 0, 0);
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
@@ -67,7 +68,7 @@ input:focus, select:focus {
 }
 
 #result-container p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 /* Style for the submitted data table */
@@ -160,49 +161,7 @@ td button.delete-btn {
     }
 
     #input-table, #data-table, #materials-table {
-        font-size: 0.9rem;
-    }
-
-    table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
-    }
-
-    th, td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    tr {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    input, select {
-        width: 100%;
-    }
-
-    #submit-btn {
-        width: 100%;
-    }
-
-    #submitted-table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
-    }
-
-    #submitted-table th, #submitted-table td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    #submitted-table tr {
-        display: block;
-        margin-bottom: 10px;
+        font-size: 0.7rem;
     }
 }
 
