@@ -1,0 +1,211 @@
+/* Style for the table */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default; /* Default cursor for all elements */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9fafb; /* Lighter background for a cleaner look */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+table {
+    width: 90%; 
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+input, select {
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#submit-btn {
+    display: inline-block;
+    width: 10%;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: #007BFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Hidden class for hiding elements */
+.hidden {
+    display: none;
+}
+
+/* Styling for the result container */
+#result-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result-container p {
+    font-size: 16px;
+    font-weight: bold;
+}
+/* Style for the submitted data table */
+#submitted-table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+#submitted-table th{
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #000000; /* Add border to table cells */
+    font-size: 16px; /* Change font size here */
+}
+
+#submitted-table td {  
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #000000; /* Add border to table cells */
+    font-size: 12px; /* Change font size here */
+    max-width: 90%; /* Set a maximum width */
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word; /* Break words if necessary */
+}
+
+#submitted-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#submitted-table tbody tr:hover {
+    background-color: #7caaa4;
+}
+
+
+
+/* Additional styles for specific table columns */
+td button.delete-btn {
+    width: fit-content; /* Ensure it fits the full cell width */
+    color: rgb(0, 0, 0);
+    background-color: transparent; /* Change color to red */ /* Change color to red */
+    padding: 8px; /* Adjust padding for a better appearance */
+    border: none; /* Remove border for a clean look */
+    border-radius: 4px; /* Optional: Rounded corners */
+    box-sizing: border-box; /* Ensures padding doesn't overflow the width */
+    text-align: center; /* Center-align text inside the button */
+    cursor: pointer; /* Indicates it's clickable */
+}
+ button.delete-btn:hover {
+    background-color: #ea081f89; /* Change color on hover */
+ }
+ td button.edit-btn {
+    width: fit-content; /* Ensure it fits the full cell width */
+    color: rgb(0, 0, 0);
+    background-color: transparent; /* Change color to red */
+    padding: 8px; /* Adjust padding for a better appearance */
+    border: none; /* Remove border for a clean look */
+    border-radius: 4px; /* Optional: Rounded corners */
+    box-sizing: border-box; /* Ensures padding doesn't overflow the width */
+    text-align: center; /* Center-align text inside the button */
+    cursor: pointer; /* Indicates it's clickable */
+}
+ button.edit-btn:hover {
+    background-color: rgba(0, 128, 0, 0.5); /* Change color on hover */
+ }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input[type="date"], input[type="text"], input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #input-table, #data-table, #materials-table {
+        font-size: 0.9rem;
+    }
+
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input, select {
+        width: 100%;
+    }
+
+    #submit-btn {
+        width: 100%;
+    }
+
+    #submitted-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    #submitted-table th, #submitted-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #submitted-table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.dropdown.hidden {
+    display: none;
+}
