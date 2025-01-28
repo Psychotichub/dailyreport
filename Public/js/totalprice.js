@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate the material list from server
     const populateMaterialList = async () => {
         try {
-            const response = await fetch('http://localhost:3000/material-submit');
+            const response = await fetch('/material-submit');
             if (!response.ok) throw new Error('Failed to fetch material names');
             
             const materials = await response.json();
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const formattedEndDate = new Date(endDate).toISOString().split('T')[0] + 'T23:59:59.999Z';
 
             const [materialResponse, priceResponse] = await Promise.all([
-                fetch(`http://localhost:3000/daily-reports?start=${formattedStartDate}&end=${formattedEndDate}`),
-                fetch(`http://localhost:3000/material-submit`),
+                fetch(`/daily-reports?start=${formattedStartDate}&end=${formattedEndDate}`),
+                fetch(`/material-submit`),
             ]);
             
             if (!materialResponse.ok) throw new Error('Failed to fetch material data');
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formattedStartDate = new Date(startDate).toISOString();
             const formattedEndDate = new Date(endDate).toISOString();
 
-            const existingDataResponse = await fetch(`http://localhost:3000/total-price?start=${formattedStartDate}&end=${formattedEndDate}`);
+            const existingDataResponse = await fetch(`/total-price?start=${formattedStartDate}&end=${formattedEndDate}`);
             if (!existingDataResponse.ok) throw new Error('Failed to fetch existing data');
 
             const existingData = await existingDataResponse.json();
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 existingDocument.materials = updatedMaterials;
 
-                const response = await fetch(`http://localhost:3000/total-price/${existingDocument._id}`, {
+                const response = await fetch(`/total-price/${existingDocument._id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Data updated successfully!');
             } else {
                 // If no data exists, create a new document
-                const response = await fetch('http://localhost:3000/total-price', {
+                const response = await fetch('/total-price', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
