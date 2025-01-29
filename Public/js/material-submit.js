@@ -135,6 +135,9 @@ async function initMaterialSubmit() {
                     <p>Material Price: ${material.materialPrice} €</p>
                     <p>Labor Price: ${material.laborPrice} €</p>
                 `;
+                // Clear the search input value
+                searchInput.value = '';
+                
             } else {
                 searchResult.innerHTML = '<p>Material not found.</p>';
             }
@@ -213,7 +216,10 @@ async function initMaterialSubmit() {
 
     // Reset the form to default state
     function resetForm() {
-        ['materialNameInput', 'unitInput', 'materialPriceInput', 'laborPriceInput'].forEach(id => document.getElementById(id).value = '');
+        materialNameInput.value = '';
+        unitInput.value = '';
+        materialPriceInput.value = '';
+        laborPriceInput.value = '';
         submitButton.textContent = 'Submit';
         delete submitButton.dataset.editing;
     }
