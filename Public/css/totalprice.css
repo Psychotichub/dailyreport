@@ -1,0 +1,29 @@
+#totalprice-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#totalprice-table th, #totalprice-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#totalprice-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#totalprice-table tr:hover {
+    background-color: #ddd;
+}
+
+#totalprice-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,245 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default; /* Default cursor for all elements */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9fafb; /* Lighter background for a cleaner look */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Main Heading */
+h1 {
+    text-align: center;
+    font-size: 2.7rem; /* Increased size for better visibility */
+    color: #0044cc;
+    margin-bottom: 20px;
+    font-weight: 600; /* Slightly bolder for emphasis */
+}
+
+/* Input Section */
+.date-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.date-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555;
+}
+
+.date-container input[type="date"], input[type="text"], input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for a more modern appearance */
+    margin: 5px;
+    width: 70%;
+    transition: border 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
+    cursor: text; /* Text cursor for input fields */
+}
+
+.input:focus {
+    outline: none;
+    border-color: #0044cc;
+    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5); /* More pronounced focus effect */
+}
+
+/* Buttons */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+button.save-reoprt {
+    background-color: #28a745;
+    color: white;
+}
+
+button.save-reoprt:hover {
+    background-color: #218838;
+}
+
+button.send-data, button.print, button.pdf {
+    background-color: #0044cc;
+    color: white;
+}
+
+button.send-data:hover, button.print:hover, button.pdf:hover {
+    background-color: #003399;
+}
+
+button#filter-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+button#filter-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Input Table */
+#input-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ddd; /* Added a light border for definition */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+#input-table tr {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+#input-table td {
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+#input-table input[type="text"],
+#input-table input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+
+
+/* Data Display Table */
+#saved-data-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#saved-data-container.hidden {
+    display: none;
+}
+
+#saved-date {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #0044cc;
+}
+
+#data-table, #materials-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for table */
+}
+
+#data-table th, #materials-table th {
+    background-color: #0044cc;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid #ddd ;
+}
+
+#data-table td, #materials-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #555;
+    font-weight: 400;
+}
+
+#materials-table.hidden {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input[type="date"], input[type="text"], input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #input-table, #data-table, #materials-table {
+        font-size: 0.9rem;
+    }
+}
+
+.hidden {
+    display: none;
+}

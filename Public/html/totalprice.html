@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Price</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/totalprice.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="date-container">
+        <label for="startDateInput">Start Date:</label>
+        <input type="date" id="startDateInput">
+        <label for="endDateInput">End Date:</label>
+        <input type="date" id="endDateInput">
+        <button id="fetchButton">Fetch Data</button>
+    </div>
+    <div id="content" class="hidden">
+        <div id="selected-date-range"></div> <!-- New div to show the selected date range -->
+        <table id="totalprice-table">
+            <thead>
+                <tr>
+                    <th>Material Name</th>
+                    <th>Quantity</th>
+                    <th>Material Price</th>
+                    <th>Labor Price</th>
+                    <th>Total Price</th>
+                </tr>
+
+            </thead>
+            <tbody id="materialsTableBody">
+                <!-- Dynamically populated rows go here -->
+            </tbody>
+        </table>
+        <div id="grand-total"></div>
+    </div>
+    <div id="export" class="hidden">
+        <button type="button" id="save">Save</button>
+        <button type="button" id="print">Print</button>
+        <button type="button" id="export-pdf">Export to PDF</button>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="/js/header.js"></script>
+    <script src="/js/totalprice.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

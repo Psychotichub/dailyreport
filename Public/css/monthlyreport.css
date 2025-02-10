@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+#transaction {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0044cc;
+}
+
+/* Main Heading */
+h1, h3 {
+    text-align: center;
+    font-size: 2.7rem;
+    color: #0044cc;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.clickable-date-range {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.clickable-date-range:hover {
+    color: rgb(55, 0, 255);
+    font-weight: bold;
+}
+
+/* Data Display Table */
+#monthly-report {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#monthly-report th, #monthly-report td {
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+#monthly-report th {
+    background-color: #0044cc;
+    color: white;
+    text-transform: uppercase;
+}
+
+#monthly-report tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#monthly-report tr:hover {
+    background-color: #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    #monthly-report {
+        font-size: 0.9rem;
+    }
+}
