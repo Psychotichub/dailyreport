@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownItem.textContent = option.value;
                 dropdownItem.addEventListener('click', () => {
                     materialNameInput.value = option.value;
+                    selectedUnit = option.dataset.unit;
                     dropdown.classList.add('hidden');
                 });
                 dropdown.appendChild(dropdownItem);
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         if (!isValid) {
             materialNameInput.value = '';
+            selectedUnit = '';
         }
     });
 

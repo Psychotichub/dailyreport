@@ -219,7 +219,6 @@ async function initMaterialSubmit() {
                 dropdownItem.className = 'dropdown-item';
                 dropdownItem.textContent = option.value;
                 dropdownItem.addEventListener('click', () => {
-                    materialNameInput.value = option.value;
                     dropdown.classList.add('hidden');
                 });
                 dropdown.appendChild(dropdownItem);
@@ -229,6 +228,14 @@ async function initMaterialSubmit() {
             dropdown.classList.add('hidden');
         }
     });
+
+    document.addEventListener('click', (e) => {
+        const dropdown = document.getElementById('material-dropdown');
+        if (!materialNameInput.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+
 
     function resetForm() {
         materialNameInput.value = '';

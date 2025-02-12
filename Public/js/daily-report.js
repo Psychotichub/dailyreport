@@ -46,8 +46,8 @@ function initDailyReport() {
             if (!response.ok) throw new Error('Failed to fetch material names');
 
             const materials = await response.json();
-            console.log('Fetched materials:', materials); 
-            materialList.innerHTML = ''; 
+            console.log('Fetched materials:', materials);
+            materialList.innerHTML = '';
             materials.forEach(material => {
                 const option = document.createElement('option');
                 option.value = material.materialName;
@@ -66,6 +66,7 @@ function initDailyReport() {
         selectedUnit = selectedOption ? selectedOption.dataset.unit : '';
 
         const query = materialNameInput.value.toLowerCase();
+
         const filteredOptions = Array.from(materialList.options).filter(option =>
             option.value.toLowerCase().includes(query)
         );
@@ -80,6 +81,7 @@ function initDailyReport() {
                 dropdownItem.textContent = option.value;
                 dropdownItem.addEventListener('click', () => {
                     materialNameInput.value = option.value;
+                    selectedUnit = option.dataset.unit;
                     dropdown.classList.add('hidden');
                 });
                 dropdown.appendChild(dropdownItem);
@@ -103,6 +105,7 @@ function initDailyReport() {
         );
         if (!isValid) {
             materialNameInput.value = '';
+            selectedUnit = '';
         }
     });
 
@@ -111,6 +114,12 @@ function initDailyReport() {
         const quantity = quantityInput.value.trim();
         const notes = notesInput.value.trim();
         const date = dateInput.value;
+
+        // Log values for debugging
+        console.log('Material Name:', materialName);
+        console.log('Quantity:', quantity);
+        console.log('Date:', date);
+        console.log('Selected Unit:', selectedUnit);
 
         if (!materialName || !quantity || !date || !selectedUnit) {
             alert('Please fill in all required fields, including selecting a material and unit.');
