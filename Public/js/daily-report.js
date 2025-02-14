@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', initDailyReport);
 
 function initDailyReport() {
-    // DOM Elements
     const dateInput = document.getElementById('date');
     const materialNameInput = document.getElementById('material-name');
     const quantityInput = document.getElementById('quantity');
@@ -18,7 +17,6 @@ function initDailyReport() {
     const pdfButton = document.querySelector('.pdf');
     const sendDataButton = document.querySelector('.send-data');
 
-    // Utility Functions
     const clearInputs = () => {
         materialNameInput.value = '';
         quantityInput.value = '';
@@ -33,7 +31,6 @@ function initDailyReport() {
         return date.toLocaleDateString();
     };
 
-    // Set current date in the date input
     const currentDate = new Date().toISOString().split('T')[0];
     dateInput.value = currentDate;
     filterDateInput.value = currentDate;

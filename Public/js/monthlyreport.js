@@ -11,11 +11,8 @@ async function initTotalPrice() {
             if (!uniqueDateRanges.has(item.dateRange)) {
                 uniqueDateRanges.add(item.dateRange);
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${item.dateRange}</td>
-                `;
+                row.innerHTML = `<td>${item.dateRange}</td>`;
 
-                // Display data in date-range div
                 const dateDiv = document.createElement('div');
                 dateDiv.innerHTML = `Date: ${item.dateRange}`;
                 dateDiv.classList.add('clickable-date-range');
@@ -24,7 +21,6 @@ async function initTotalPrice() {
             }
         });
 
-        // Hide the table initially
         monthlyReportTable.style.display = 'none';
     };
 
@@ -57,17 +53,16 @@ async function initTotalPrice() {
                 }
             });
 
-            // Add the total sum row
             const totalRow = document.createElement('tr');
             totalRow.innerHTML = `
-                <td colspan="2">Total</td>
-                <td>${totalMaterialPrice} €</td>
-                <td>${totalLaborPrice} €</td>
-                <td>${totalSum} €</td>
+                <td><strong>Total</strong></td>
+                <td></td>
+                <td><strong>${totalMaterialPrice.toFixed(2)} €</strong></td>
+                <td><strong>${totalLaborPrice.toFixed(2)} €</strong></td>
+                <td><strong>${totalSum.toFixed(2)} €</strong></td>
             `;
             monthlyReport.appendChild(totalRow);
 
-            // Show the table when a date range is clicked
             if (data.length === 0) {
                 monthlyReportTable.style.display = 'none';
             } else {
@@ -85,7 +80,7 @@ async function initTotalPrice() {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            displayData(data); // Display the data on the page
+            displayData(data);
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
         }

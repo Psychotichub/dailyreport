@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let response;
             if (saveButton.dataset.id) {
                 const id = saveButton.dataset.id;
-                response = await fetch(`http://localhost:3000/received/${id}`, {
+                response = await fetch(`/received/${id}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 saveButton.textContent = 'Save';
                 delete saveButton.dataset.id;
             } else {
-                response = await fetch('http://localhost:3000/received', {
+                response = await fetch('/received', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ materials: [data] })
