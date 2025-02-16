@@ -82,7 +82,7 @@ const getReceivedByDate = async (req, res) => {
     const { date } = req.params;
     try {
         // Fetch daily reports by date
-        const receiveds = await received.find({ date: new Date(date).toISOString() });
+        const receiveds = await received.find({ date: new Date(date).toLocaleDateString('en-CA').split('T')[0] });
         res.status(200).json(receiveds);
     } catch (error) {
         console.error(error);

@@ -34,7 +34,7 @@ const addTotalPrice = async (req, res) => {
 const getTotalPriceByDate = async (req, res) => {
     const { date } = req.params;
     try {
-        const totalPrice = await TotalPrice.find({ date: new Date(date).toISOString().split('T')[0] });
+        const totalPrice = await TotalPrice.find({ date: new Date(date).toLocaleDateString('en-CA').split('T')[0] });
         res.status(200).json(totalPrice);
     } catch (error) {
         console.error('Error fetching total price by date:', error);

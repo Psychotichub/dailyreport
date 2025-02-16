@@ -26,11 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        return date.toLocaleDateString();
+        return date.toLocaleDateString('en-CA');
     };
 
-    // Set current date in the date input
-    const currentDate = new Date().toISOString().split('T')[0];
+    const currentDate = new Date().toLocaleDateString('en-CA').split('T')[0];
     dateInput.value = currentDate;
     filterDateInput.value = currentDate;
 
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/material-submit');
             if (!response.ok) throw new Error('Failed to fetch material names');
             const materials = await response.json();
-            console.log('Fetched materials:', materials);
             materialList.innerHTML = '';
             materials.forEach(material => {
                 const option = document.createElement('option');
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 materialList.appendChild(option);
             });
         } catch (error) {
-            console.error('Error fetching material names:', error);
             alert('Failed to load material names. Please check the console.');
         }
     };
@@ -152,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
             savedDateContainer.textContent = '';
             fetchReceivedByDate(filterDateInput.value);
         } catch (error) {
-            console.error('Error saving data:', error);
             alert('Failed to save data.');
         }
         clearInputs();
@@ -240,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showElement(printButton);
             showElement(pdfButton);
         } catch (error) {
-            console.error('Error fetching Received Materials:', error);
             alert('Failed to fetch Received Materials.');
         }
     };
@@ -287,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('received material deleted successfully');
                 fetchReceivedByDate(filterDateInput.value);
             } catch (error) {
-                console.error('Error deleting received material:', error);
                 alert('Failed to delete received material.');
             }
         }

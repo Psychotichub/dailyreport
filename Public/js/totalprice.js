@@ -11,27 +11,24 @@ async function initTotalPrice() {
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        return date.toISOString().split('T')[0];
+        return date.toLocaleDateString('en-CA').split('T')[0];
     };
 
-    const currentDate = new Date().toISOString().split('T')[0];
+    const currentDate = new Date().toLocaleDateString('en-CA').split('T')[0];
     startDateInput.value = currentDate;
     endDateInput.value = currentDate;
 
     let selectedUnit = '';
     hideElement(document.getElementById('content'));
 
-    // Fetch and display data based on date range
     fetchButton.addEventListener('click', async () => {
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
         endDate.setHours(23, 59, 59, 999);
 
         try {
-            const formattedStartDate = startDate.toISOString();
-            const formattedEndDate = endDate.toISOString();
-            console.log('Formatted start date:', formattedStartDate);
-            console.log('Formatted end date:', formattedEndDate);
+            const formattedStartDate = startDate.toLocaleDateString('en-CA');
+            const formattedEndDate = endDate.toLocaleDateString('en-CA');
 
             const [materialResponse, priceResponse] = await Promise.all([
                 fetch(`/daily-reports/date-range?start=${formattedStartDate}&end=${formattedEndDate}`),
@@ -43,8 +40,6 @@ async function initTotalPrice() {
 
             const materialData = await materialResponse.json();
             const priceData = await priceResponse.json();
-            console.log('Fetched dailyReport:', materialData);
-            console.log('Fetched materialPrice data:', priceData);
 
             if (materialData.length === 0) {
                 alert('No data found for the selected date range.');
@@ -72,7 +67,7 @@ async function initTotalPrice() {
             }, []);
 
             summedData.forEach(item => {
-                const priceItem = priceData.find(p => p.materialName === item.materialName); // Match by materialName
+                const priceItem = priceData.find(p => p.materialName === item.materialName);
                 item.totalMaterialPrice = item.quantity * (priceItem ? priceItem.materialPrice : item.materialPrice);
                 item.totalLaborPrice = item.quantity * (priceItem ? priceItem.laborPrice : item.laborPrice);
                 item.totalPrice = item.totalMaterialPrice + item.totalLaborPrice;
@@ -83,8 +78,7 @@ async function initTotalPrice() {
             const grandTotal = (parseFloat(totalMaterialPrice) + parseFloat(totalLaborPrice)).toFixed(2);
             showElement(totalPriceElement);
 
-
-            selectedDateRangeElement.textContent = `Selected Date Range: ${formatDate(startDate)} - ${formatDate(endDate)}`;
+            selectedDateRangeElement.textContent = `Selected Date Range: ${formatDate(startDate)} to ${formatDate(endDate)}`;
 
             const tbody = document.getElementById('materialsTableBody');
             tbody.innerHTML = '';
@@ -119,7 +113,6 @@ async function initTotalPrice() {
         }
     });
 
-    // Add event listener to save button
     document.getElementById('save').addEventListener('click', async () => {
         const tableData = [];
         const rows = document.querySelectorAll('#materialsTableBody tr');
@@ -134,7 +127,7 @@ async function initTotalPrice() {
                     materialPrice: parseFloat(cells[2].textContent.replace(' €', '')),
                     laborPrice: parseFloat(cells[3].textContent.replace(' €', '')),
                     totalPrice: parseFloat(cells[4].textContent.replace(' €', '')),
-                    date: new Date().toISOString().split('T')[0],
+                    date: new Date().toLocaleDateString('en-CA').split('T')[0],
                     dateRange: `${formatDate(startDateInput.value)} - ${formatDate(endDateInput.value)}`
                 });
             }
@@ -143,7 +136,6 @@ async function initTotalPrice() {
         const dateRange = `${formatDate(startDateInput.value)} - ${formatDate(endDateInput.value)}`;
 
         try {
-            // Check if date range already exists
             const checkResponse = await fetch(`/total-price/date-range?dateRange=${encodeURIComponent(dateRange)}`);
             if (!checkResponse.ok) throw new Error('Failed to check date range');
             const checkData = await checkResponse.json();

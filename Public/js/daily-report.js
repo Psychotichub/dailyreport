@@ -26,12 +26,9 @@ function initDailyReport() {
     const showElement = (element) => element.classList.remove('hidden');
     const hideElement = (element) => element.classList.add('hidden');
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString();
-    };
+//  console.log('Current date:', new Date().toLocaleDateString('en-CA') + ' ' + new Date().toLocaleTimeString());
 
-    const currentDate = new Date().toISOString().split('T')[0];
+    const currentDate = new Date().toLocaleDateString('en-CA').split('T')[0];
     dateInput.value = currentDate;
     filterDateInput.value = currentDate;
 
@@ -112,12 +109,6 @@ function initDailyReport() {
         const notes = notesInput.value.trim();
         const date = dateInput.value;
 
-        // Log values for debugging
-        console.log('Material Name:', materialName);
-        console.log('Quantity:', quantity);
-        console.log('Date:', date);
-        console.log('Selected Unit:', selectedUnit);
-
         if (!materialName || !quantity || !date || !selectedUnit) {
             alert('Please fill in all required fields, including selecting a material and unit.');
             return;
@@ -131,7 +122,7 @@ function initDailyReport() {
             quantity: Number(quantity),
             unit,
             notes,
-            date: new Date(date).toISOString().split('T')[0]
+            date: new Date(date).toLocaleDateString().split('T')[0]
         };
 
         try {
@@ -295,7 +286,9 @@ function initDailyReport() {
                     method: 'DELETE'
                 });
                 if (!response.ok) throw new Error('Failed to delete daily report');
+
                 alert('Daily report deleted successfully');
+
                 fetchDailyReportsByDate(filterDateInput.value);
             } catch (error) {
                 console.error('Error deleting daily report:', error);

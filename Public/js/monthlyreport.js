@@ -3,6 +3,7 @@ async function initTotalPrice() {
     const dateRange = document.getElementById('date-range');
     const monthlyReport = document.getElementById('monthly-report').querySelector('tbody');
     const monthlyReportTable = document.getElementById('monthly-report');
+    const showDate= document.getElementById('date');
 
     const displayData = (data) => {
         dateRange.innerHTML = '';
@@ -33,6 +34,7 @@ async function initTotalPrice() {
             const data = await response.json();
             dateRange.innerHTML = `Date: ${selectedDateRange}`;
             monthlyReport.innerHTML = '';
+            showDate.innerHTML = `Date: ${selectedDateRange}`;
             let totalSum = 0;
             let totalMaterialPrice = 0;
             let totalLaborPrice = 0;

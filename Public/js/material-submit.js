@@ -63,11 +63,9 @@ async function initMaterialSubmit() {
                     resetForm();
                 } else {
                     const errorResult = await response.json();
-                    console.error('Error updating material:', errorResult.message);
                     alert('Error: ' + errorResult.message);
                 }
             } catch (error) {
-                console.error('Error updating data:', error);
                 alert('Error updating data on server.');
             }
         } else {
@@ -79,7 +77,6 @@ async function initMaterialSubmit() {
                     return;
                 }
             } catch (error) {
-                console.error('Error checking material name:', error);
                 alert('Error checking material name on server.');
                 return;
             }
@@ -100,11 +97,9 @@ async function initMaterialSubmit() {
                     alert('Material added successfully.');
                 } else {
                     const errorResult = await response.json();
-                    console.error('Error adding material:', errorResult.message);
                     alert('Error: ' + errorResult.message);
                 }
             } catch (error) {
-                console.error('Error submitting data:', error);
                 alert('Error submitting data to server.');
             }
         }
@@ -134,7 +129,6 @@ async function initMaterialSubmit() {
                 searchResult.innerHTML = '<p>Material not found.</p>';
             }
         } catch (error) {
-            console.error('Error searching material:', error);
             alert('Error searching material on server.');
         }
     });
@@ -174,18 +168,15 @@ async function initMaterialSubmit() {
                 });
 
                 if (response.ok) {
-                    console.log('Material deleted successfully');
                     newRow.remove();
                     materialsList = materialsList.filter(item => item !== materialName);
                     updateMaterialList();
                     submittedTable.classList.toggle('hidden', submittedTableBody.children.length === 0);
                 } else {
                     const result = await response.json();
-                    console.error('Error deleting material:', result.message);
                     alert("Error deleting material: " + result.message);
                 }
             } catch (error) {
-                console.error("Error deleting material:", error);
                 alert("An error occurred while deleting the material.");
             }
         });
@@ -235,7 +226,6 @@ async function initMaterialSubmit() {
             dropdown.classList.add('hidden');
         }
     });
-
 
     function resetForm() {
         materialNameInput.value = '';
