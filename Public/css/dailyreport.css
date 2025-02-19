@@ -30,7 +30,7 @@ h1 {
     margin: 15px auto;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start;;
 }
 .date-container label {
     font-size: 1rem;
@@ -48,29 +48,30 @@ h1 {
     margin: 5px;
     width: 70%;
     transition: border 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
-    cursor: text; /* Text cursor for input fields */
+    cursor: text;
 }
 
 input:focus {
     outline: none;
     border-color: #0044cc;
-    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5); /* More pronounced focus effect */
+    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5);
 }
 
-/* Buttons */
+
 button {
-    padding: 12px 24px;
+    padding: 8px 16px;
+    width: fit-content;
     border: none;
-    border-radius: 8px; /* Rounded corners for buttons */
-    cursor: pointer; /* Pointer cursor for buttons */
+    border-radius: 8px;
+    cursor: pointer;
     font-size: 1rem;
     margin: 5px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out; /* Smooth hover effect */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 button:hover {
     opacity: 0.9;
-    transform: scale(1.05); /* Slight zoom effect */
+    transform: scale(1.05);
 }
 
 button.save-reoprt {
@@ -139,7 +140,7 @@ button#filter-btn:hover {
 
 /* Data Display Table */
 #saved-data-container {
-    width: 90%;
+    width: fit-content;
     max-width: 800px;
     margin: 20px auto;
 }
@@ -274,6 +275,8 @@ button.edit-btn:hover {
 @media (max-width: 48rem) {
     body {
         padding: 15px;
+        font-size: 0.9rem;
+        width: fit-content;
     }
 
     div {
@@ -285,15 +288,25 @@ button.edit-btn:hover {
         margin-bottom: 5px;
     }
 
-    input[type="date"], input[type="text"], input[type="number"] {
+    input[type="date"] {
+        width: fit-content;
+    }
+
+    input[type="text"], input[type="number"] {
         width: 100%;
     }
 
     button {
-        width: 100%;
+        width: fit-content;
+        text-align: justify;
+        font-size: 0.7rem;
     }
 
     #input-table, #data-table, #materials-table {
+        font-size: 0.9rem;
+    }
+
+    #material-dropdown {
         font-size: 0.9rem;
     }
 }

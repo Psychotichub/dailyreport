@@ -14,6 +14,7 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   padding: 2rem;
+  font-size: 1rem; /* Match text size */
 }
 
 #content {
@@ -125,6 +126,7 @@ input:focus, select:focus {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
 #submitted-table th {
@@ -148,6 +150,15 @@ button.edit-btn, button.delete-btn {
   border-radius: 0.25rem;
   font-weight: 500;
   transition: all 0.2s ease;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 1rem; /* Match button size */
+}
+
+button:hover {
+  transform: scale(1.05); /* Match hover effect */
 }
 
 .hidden {

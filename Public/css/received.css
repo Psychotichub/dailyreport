@@ -12,6 +12,7 @@ body {
     color: #333;
     line-height: 1.6;
     padding: 20px;
+    font-size: 1rem; /* Match text size */
 }
 
 /* Main Heading */
@@ -59,18 +60,18 @@ h1 {
 
 /* Buttons */
 button {
-    padding: 12px 24px;
+    padding: 8px 16px;
     border: none;
     border-radius: 8px; /* Rounded corners for buttons */
     cursor: pointer; /* Pointer cursor for buttons */
-    font-size: 1rem;
+    font-size: 1rem; /* Match button size */
     margin: 5px;
     transition: background-color 0.3s, transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
 button:hover {
     opacity: 0.9;
-    transform: scale(1.05); /* Slight zoom effect */
+    transform: scale(1.05); /* Match hover effect */
 }
 
 button.save-reoprt {

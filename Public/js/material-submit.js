@@ -158,6 +158,8 @@ async function initMaterialSubmit() {
             newRow.remove();
             materialsList = materialsList.filter(item => item !== materialName);
             updateMaterialList();
+
+            materialNameInput.scrollIntoView({ behavior: 'smooth' });
         });
 
         newRow.querySelector('.delete-btn').addEventListener('click', async () => {
