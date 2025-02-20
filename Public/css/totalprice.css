@@ -1,3 +1,31 @@
+:root {
+    --primary-color: #2962ff;
+    --secondary-color: #448aff;
+    --success-color: #00c853;
+    --danger-color: #d50000;
+    --text-color: #2d3748;
+    --background-color: #f8f9fa;
+    --border-color: #e2e8f0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 2rem;
+    font-size: 1rem; /* Match text size */
+  }
+  
+  h1{
+    text-align: center;
+    font-size: 2.7rem;
+    color: #0044cc;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+
 #totalprice-table {
     border-collapse: collapse;
     width: 100%;
@@ -24,7 +52,13 @@
     background-color: #4CAF50;
     color: white;
 }
-
+#note {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #cc0000;
+}
 .hidden {
     display: none;
 }

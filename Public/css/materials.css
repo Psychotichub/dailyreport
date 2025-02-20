@@ -17,6 +17,14 @@ body {
   font-size: 1rem; /* Match text size */
 }
 
+h1{
+  text-align: center;
+  font-size: 2.7rem;
+  color: #0044cc;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
 #content {
   max-width: 1200px;
   margin: 0 auto;
@@ -82,7 +90,7 @@ input:focus, select:focus {
   background-color: #ffffff;
   color: #000000;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   border-bottom: 1px solid #003b00; /* Optional separator */
   transition: background-color 0.3s;
 }

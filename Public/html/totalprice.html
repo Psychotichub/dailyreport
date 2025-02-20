@@ -9,15 +9,17 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
+    <h1>Total Price Report</h1>
+    <h3>Select Date Range </h3>
     <div id="date-container">
         <label for="startDateInput">Start Date:</label>
         <input type="date" id="startDateInput">
         <label for="endDateInput">End Date:</label>
         <input type="date" id="endDateInput">
-        <button id="fetchButton">Fetch Data</button>
+        <button type="button" id="fetchButton">Show Data From Selected Dates</button>
     </div>
     <div id="content" class="hidden">
-        <div id="selected-date-range"></div> <!-- New div to show the selected date range -->
+        <div id="selected-date-range"></div>
         <table id="totalprice-table">
             <thead>
                 <tr>
@@ -36,6 +38,7 @@
         <div id="grand-total"></div>
     </div>
     <div id="export" class="hidden">
+        <h4 id="note">*Note:Make sure that Date Range is correct before Save</h4>
         <button type="button" id="save">Save</button>
         <button type="button" id="print">Print</button>
         <button type="button" id="export-pdf">Export to PDF</button>

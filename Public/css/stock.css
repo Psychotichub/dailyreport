@@ -17,7 +17,13 @@ body {
   font-size: 1rem; /* Match text size */
 }
 
-/* Removed #content styles as it is not present in the HTML file */
+h1{
+  text-align: center;
+  font-size: 2.7rem;
+  color: #0044cc;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
 
 #stock-search-container {
   margin-bottom: 2rem;
