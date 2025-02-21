@@ -83,6 +83,7 @@ function initStock() {
     const displayTotalStock = (totalStock) => {
         tbody.innerHTML = '';
         const displayedMaterials = new Set();
+        totalStock.sort((a, b) => a.materialName.localeCompare(b.materialName));
         totalStock.forEach(({ materialName, received, consumed, unit, total }) => {
             if (!displayedMaterials.has(materialName)) {
                 const row = document.createElement('tr');
