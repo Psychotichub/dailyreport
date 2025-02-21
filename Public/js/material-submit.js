@@ -22,6 +22,7 @@ async function initMaterialSubmit() {
             if (response.ok) {
                 submittedTableBody.innerHTML = '';
                 materialsList = materials.map(material => material.materialName);
+                materials.sort((a, b) => a.materialName.localeCompare(b.materialName));
                 materials.forEach(addMaterialToTable);
                 updateMaterialList();
                 submittedTable.classList.toggle('hidden', materials.length === 0);

@@ -32,9 +32,8 @@ async function initTotalPrice() {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            dateRange.innerHTML = `Date: ${selectedDateRange}`;
             monthlyReport.innerHTML = '';
-            showDate.innerHTML = `Date: ${selectedDateRange}`;
+            showDate.innerHTML = `Situation for Date: ${selectedDateRange}`;
             let totalSum = 0;
             let totalMaterialPrice = 0;
             let totalLaborPrice = 0;

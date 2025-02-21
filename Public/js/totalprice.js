@@ -41,6 +41,10 @@ async function initTotalPrice() {
             const materialData = await materialResponse.json();
             const priceData = await priceResponse.json();
 
+            // Sort materialData and priceData alphabetically by materialName
+            materialData.sort((a, b) => a.materialName.localeCompare(b.materialName));
+            priceData.sort((a, b) => a.materialName.localeCompare(b.materialName));
+
             if (materialData.length === 0) {
                 alert('No data found for the selected date range.');
                 return;
@@ -128,12 +132,12 @@ async function initTotalPrice() {
                     laborPrice: parseFloat(cells[3].textContent.replace(' €', '')),
                     totalPrice: parseFloat(cells[4].textContent.replace(' €', '')),
                     date: new Date().toLocaleDateString('en-CA').split('T')[0],
-                    dateRange: `${formatDate(startDateInput.value)} - ${formatDate(endDateInput.value)}`
+                    dateRange: `${formatDate(startDateInput.value)} to ${formatDate(endDateInput.value)}`
                 });
             }
         });
 
-        const dateRange = `${formatDate(startDateInput.value)} - ${formatDate(endDateInput.value)}`;
+        const dateRange = `${formatDate(startDateInput.value)} to ${formatDate(endDateInput.value)}`;
 
         try {
             const checkResponse = await fetch(`/total-price/date-range?dateRange=${encodeURIComponent(dateRange)}`);
