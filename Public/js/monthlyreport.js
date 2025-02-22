@@ -88,5 +88,4 @@ async function initTotalPrice() {
     };
 
     fetchData();
-
 };

@@ -1,9 +1,9 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: default; /* Default cursor for all elements */
+    cursor: default;
 }
 
 body {
@@ -14,7 +14,6 @@ body {
     padding: 20px;
 }
 
-/* Main Heading */
 h1 {
     text-align: center;
     font-size: 2.7rem;
@@ -23,7 +22,6 @@ h1 {
     font-weight: 600;
 }
 
-/* Input Section */
 .date-container {
     width: 90%;
     max-width: 600px;
@@ -161,7 +159,7 @@ button#filter-btn:hover {
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for table */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #data-table th, #materials-table th {
@@ -211,34 +209,40 @@ button#filter-btn:hover {
 }
 
 td button.delete-btn {
-    width: fit-content; /* Ensure it fits the full cell width */
+    width: fit-content;
+    font-size: 0.7rem;
     color: rgb(0, 0, 0);
-
-    padding: 8px; /* Adjust padding for a better appearance */
-    border: none; /* Remove border for a clean look */
-    border-radius: 4px; /* Optional: Rounded corners */
-    box-sizing: border-box; /* Ensures padding doesn't overflow the width */
-    text-align: center; /* Center-align text inside the button */
-    cursor: pointer; /* Indicates it's clickable */
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
 }
 button.delete-btn:hover {
-    background-color: #ea081f; /* Change color on hover */
+    color: white;
+    background-color: #ea081f;
+
 }
 td button.edit-btn {
-    width: fit-content; /* Ensure it fits the full cell width */
+    width: fit-content;
+    font-size: 0.7rem;
     color: rgb(0, 0, 0);
-
-    padding: 8px; /* Adjust padding for a better appearance */
-    border: none; /* Remove border for a clean look */
-    border-radius: 4px; /* Optional: Rounded corners */
-    box-sizing: border-box; /* Ensures padding doesn't overflow the width */
-    text-align: center; /* Center-align text inside the button */
-    cursor: pointer; /* Indicates it's clickable */
+    padding: 8px;
+    border: none;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
 }
 button.edit-btn:hover {
-    background-color: #ea081f; /* Change color on hover */
+    color: white;
+    background-color: #083dea;
 }
 
+td {
+    font-size: 0.7rem;
+}
 
 #material-dropdown {
     padding: 8px 12px;
@@ -265,6 +269,13 @@ button.edit-btn:hover {
     border-bottom: none;
 }
 
+tr:nth-child(even) {
+    background-color:#f2f2f2;
+}
+
+tr:hover {
+    background-color: #2e7fe22d;
+}
 
 /* Responsive Design */
 @media (max-width: 48rem) {

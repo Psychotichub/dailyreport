@@ -57,7 +57,6 @@ body {
 .date-time {
   font-size: 1rem;
   border: 1px solid #000000;
-
 }
 
 button {
@@ -109,6 +108,7 @@ button:hover {
   color: #61dafb;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;

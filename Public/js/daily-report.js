@@ -40,7 +40,6 @@ function initDailyReport() {
             if (!response.ok) throw new Error('Failed to fetch material names');
 
             const materials = await response.json();
-            console.log('Fetched materials:', materials);
             materialList.innerHTML = '';
             materials.forEach(material => {
                 const option = document.createElement('option');

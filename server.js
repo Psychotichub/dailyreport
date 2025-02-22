@@ -15,13 +15,14 @@ const { default: helmet } = require('helmet');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(helmet());
+app.use(cors());
+
 app.use((req, res, next) => {
-    res.set('cache-control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Cache-control', 'no-cache, no-store');
     next();
 })
 
-app.use(cors());
-app.use(helmet());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'Public')));
 
@@ -34,9 +35,10 @@ app.use('/daily-reports', dailyReportRoutes);
 app.use('/received', receivedRoutes);
 app.use('/total-price', totalPriceRoutes);
 
-app.use((err, _, res, __) => {
+app.use((err, _, res, next) => {
     console.error('Error:', err.message);
     res.status(500).json({ message: 'Internal Server Error', error: err.message });
+    next();
 });
 
 
