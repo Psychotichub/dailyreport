@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f9fafb; /* Lighter background for a cleaner look */
+    background-color: #f9fafb;
     color: #333;
     line-height: 1.6;
     padding: 20px;
@@ -17,10 +17,10 @@ body {
 /* Main Heading */
 h1 {
     text-align: center;
-    font-size: 2.7rem; /* Increased size for better visibility */
+    font-size: 2.7rem;
     color: #0044cc;
     margin-bottom: 20px;
-    font-weight: 600; /* Slightly bolder for emphasis */
+    font-weight: 600;
 }
 
 /* Input Section */
@@ -44,10 +44,10 @@ h1 {
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 8px; /* Rounded corners for a more modern appearance */
+    border-radius: 8px;
     margin: 5px;
     width: 70%;
-    transition: border 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
+    transition: border 0.3s, box-shadow 0.3s;
     cursor: text;
 }
 
@@ -101,7 +101,6 @@ button#filter-btn:hover {
     background-color: #e0a800;
 }
 
-/* Input Table */
 #input-table {
     width: 100%;
     max-width: 800px;
@@ -110,8 +109,8 @@ button#filter-btn:hover {
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
-    border: 1px solid #ddd; /* Added a light border for definition */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 #input-table tr {
@@ -136,9 +135,6 @@ button#filter-btn:hover {
     margin: 5px 0;
 }
 
-
-
-/* Data Display Table */
 #saved-data-container {
     width: fit-content;
     max-width: 800px;
@@ -244,7 +240,6 @@ button.edit-btn:hover {
 }
 
 
-/* Basic styling */
 #material-dropdown {
     padding: 8px 12px;
     width: fit-content;
@@ -252,20 +247,20 @@ button.edit-btn:hover {
     color: #000000;
     cursor: pointer;
     font-size: 0.8rem;
-    border-bottom: 1px solid #003b00; /* Optional separator */
+    border-bottom: 1px solid #003b00;
+    transition: background-color 0.3s;
 }
 
 #material-dropdown:hover {
     background-color: #ffffff;
 }
 
-/* Active/selected state */
 #material-dropdown div:active {
     background-color: #0ab1a4;
     border-radius: 1rem;
 }
 
-  /* For better visual hierarchy */
+
 #material-dropdown:last-child {
     border-bottom: none;
 }

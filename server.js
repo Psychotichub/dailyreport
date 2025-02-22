@@ -10,11 +10,18 @@ const receivedRoutes = require('./src/routes/receivedRoutes');
 const totalPriceRoutes = require('./src/routes/totalPriceRoutes');
 const { connectToMongo } = require('./src/db/mongo'); //optional
 const { connectToMongoose } = require('./src/db/mongoose');
+const { default: helmet } = require('helmet');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use((req, res, next) => {
+    res.set('cache-control', 'no-cache, no-store, must-revalidate');
+    next();
+})
+
 app.use(cors());
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'Public')));
 
