@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const materialsTable = document.getElementById('materials-table');
     const filterDateInput = document.getElementById('filter-date');
     const printButton = document.querySelector('.print');
-    const pdfButton = document.querySelector('.pdf');
     const sendDataButton = document.querySelector('.send-data');
 
     const clearInputs = () => {
@@ -154,21 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInputs();
     });
 
-    pdfButton.addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.autoTable({ html: '#data-table' });
-        const pdfData = doc.output('blob');
-        const url = URL.createObjectURL(pdfData);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'received-materials.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    });
-
     sendDataButton.addEventListener('click', async () => {
         const rows = document.querySelectorAll('#data-table tbody tr');
         const dataToSend = Array.from(rows).map(row => {
@@ -234,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             showElement(materialsTable);
             showElement(printButton);
-            showElement(pdfButton);
         } catch (error) {
             alert('Failed to fetch Received Materials.');
         }

@@ -14,7 +14,6 @@ function initDailyReport() {
     const materialsTable = document.getElementById('materials-table');
     const filterDateInput = document.getElementById('filter-date');
     const printButton = document.querySelector('.print');
-    const pdfButton = document.querySelector('.pdf');
     const sendDataButton = document.querySelector('.send-data');
 
     const clearInputs = () => {
@@ -160,20 +159,6 @@ function initDailyReport() {
         clearInputs();
     });
 
-    pdfButton.addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.autoTable({ html: '#data-table' });
-        const pdfData = doc.output('blob');
-        const url = URL.createObjectURL(pdfData);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'daily-report.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    });
 
     sendDataButton.addEventListener('click', async () => {
         const rows = document.querySelectorAll('#data-table tbody tr');
@@ -241,7 +226,6 @@ function initDailyReport() {
 
             showElement(materialsTable);
             showElement(printButton);
-            showElement(pdfButton);
         } catch (error) {
             console.error('Error fetching daily reports:', error);
             alert('Failed to fetch daily reports.');
