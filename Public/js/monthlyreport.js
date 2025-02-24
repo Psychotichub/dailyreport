@@ -4,6 +4,9 @@ async function initTotalPrice() {
     const monthlyReport = document.getElementById('monthly-report').querySelector('tbody');
     const monthlyReportTable = document.getElementById('monthly-report');
     const showDate= document.getElementById('date');
+    const printButton = document.getElementById('print');
+    const exportPdfButton = document.getElementById('export-pdf');
+    const monthlyReportDiv = document.getElementById('monthly-report');
 
     const displayData = (data) => {
         dateRange.innerHTML = '';
@@ -23,6 +26,8 @@ async function initTotalPrice() {
         });
 
         monthlyReportTable.style.display = 'none';
+        printButton.style.display = 'none';
+        exportPdfButton.style.display = 'none';
     };
 
     const displayReportForDateRange = async (selectedDateRange) => {
@@ -66,8 +71,12 @@ async function initTotalPrice() {
 
             if (data.length === 0) {
                 monthlyReportTable.style.display = 'none';
+                printButton.style.display = 'none';
+                exportPdfButton.style.display = 'none';
             } else {
                 monthlyReportTable.style.display = 'table';
+                printButton.style.display = 'inline-block';
+                exportPdfButton.style.display = 'inline-block';
             }
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
@@ -86,6 +95,23 @@ async function initTotalPrice() {
             console.error('There has been a problem with your fetch operation:', error);
         }
     };
+
+    const printElement = (element) => {
+        const printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Print</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write('table { border: 1px solid black; border-collapse: collapse; }');
+        printWindow.document.write('th, td { border: 1px solid black; padding: 8px; }');
+        printWindow.document.write('</style></head><body>');
+        printWindow.document.write(element.innerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    };
+
+    printButton.addEventListener('click', () => {
+        printElement(monthlyReportDiv);
+    });
 
     fetchData();
 };

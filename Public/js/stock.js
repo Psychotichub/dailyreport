@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', initStock);
 function initStock() {
     const stock = document.getElementById('stock');
     const tbody = document.querySelector('#stock tbody');
+    const searchForm = document.getElementById('stock-search');
+    const searchInput = document.getElementById('search');
+    const searchDropdown = document.createElement('ul');
+    searchDropdown.id = 'search-dropdown';
+    searchInput.parentNode.appendChild(searchDropdown);
+
+    let totalStockData = [];
 
     const fetchAllData = async () => {
         try {
@@ -10,8 +17,8 @@ function initStock() {
                 fetchAllDailyReport(),
                 fetchAllReceived()
             ]);
-            const totalStock = calculateTotalStock(dailyReports, receivedMaterials);
-            displayTotalStock(totalStock);
+            totalStockData = calculateTotalStock(dailyReports, receivedMaterials);
+            displayTotalStock(totalStockData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -98,5 +105,49 @@ function initStock() {
             }
         });
     };
+
+    const filterStock = (searchTerm) => {
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach(row => {
+            const materialName = row.querySelector('td').textContent.toLowerCase();
+            if (materialName.includes(searchTerm.toLowerCase())) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    };
+
+    const updateSearchDropdown = (searchTerm) => {
+        searchDropdown.innerHTML = '';
+        if (searchTerm.length === 0) {
+            return;
+        }
+        const filteredMaterials = totalStockData.filter(({ materialName }) =>
+            materialName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        filteredMaterials.forEach(({ materialName }) => {
+            const item = document.createElement('li');
+            item.textContent = materialName;
+            item.addEventListener('click', () => {
+                searchInput.value = materialName;
+                filterStock(materialName);
+                searchDropdown.innerHTML = '';
+            });
+            searchDropdown.appendChild(item);
+        });
+    };
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchTerm = searchInput.value.trim();
+        filterStock(searchTerm);
+    });
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim();
+        updateSearchDropdown(searchTerm);
+    });
+
     fetchAllData();
 };
