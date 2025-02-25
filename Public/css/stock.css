@@ -111,7 +111,8 @@ h1{
 }
 
 #stock tr:hover {
-  background-color: #2e7fe22d;
+    background-color: #ddd;
+    color: blue;
 }
 
 .hidden {

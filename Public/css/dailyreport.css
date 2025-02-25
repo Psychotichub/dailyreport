@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -276,10 +275,9 @@ tr:nth-child(even) {
 }
 
 #materials-table tbody tr:hover {
-    background-color: #dddddd;
-    font-style: italic;
+    background-color: #ddd;
+    color: blue;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {

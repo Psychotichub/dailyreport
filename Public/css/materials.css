@@ -27,7 +27,7 @@ h1{
 }
 
 #content {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   background: white;
@@ -131,6 +131,7 @@ input:focus, select:focus {
   border: 1px solid #ddd;
   padding: 8px;
   font-size: 1rem;
+  text-align: left;
   color: white;
   background-color: #0044cc;
 }
