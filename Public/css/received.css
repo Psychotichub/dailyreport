@@ -1,37 +1,35 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: default; /* Default cursor for all elements */
+    cursor: default;
 }
 
 body {
+    margin: 40px 0;
+    display: flex;
     font-family: 'Arial', sans-serif;
-    background-color: #f9fafb; /* Lighter background for a cleaner look */
+    background-color: #f9fafb;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
-    font-size: 1rem; /* Match text size */
+    padding: 1rem;
 }
 
-/* Main Heading */
 h1 {
     text-align: center;
-    font-size: 2.7rem; /* Increased size for better visibility */
+    font-size: 2.7rem;
     color: #0044cc;
     margin-bottom: 20px;
-    font-weight: 600; /* Slightly bolder for emphasis */
+    font-weight: 600;
 }
 
-/* Input Section */
 .date-container {
     width: 90%;
     max-width: 600px;
     margin: 15px auto;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start;;
 }
 .date-container label {
     font-size: 1rem;
@@ -45,33 +43,34 @@ h1 {
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 8px; /* Rounded corners for a more modern appearance */
+    border-radius: 8px;
     margin: 5px;
     width: 70%;
-    transition: border 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
-    cursor: text; /* Text cursor for input fields */
+    transition: border 0.3s, box-shadow 0.3s;
+    cursor: text;
 }
 
-.input:focus {
+input:focus {
     outline: none;
     border-color: #0044cc;
-    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5); /* More pronounced focus effect */
+    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5);
 }
 
-/* Buttons */
+
 button {
     padding: 8px 16px;
+    width: fit-content;
     border: none;
-    border-radius: 8px; /* Rounded corners for buttons */
-    cursor: pointer; /* Pointer cursor for buttons */
-    font-size: 1rem; /* Match button size */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
     margin: 5px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out; /* Smooth hover effect */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 button:hover {
     opacity: 0.9;
-    transform: scale(1.05); /* Match hover effect */
+    transform: scale(1.05);
 }
 
 button.save-reoprt {
@@ -101,7 +100,6 @@ button#filter-btn:hover {
     background-color: #e0a800;
 }
 
-/* Input Table */
 #input-table {
     width: 100%;
     max-width: 800px;
@@ -110,8 +108,8 @@ button#filter-btn:hover {
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
-    border: 1px solid #ddd; /* Added a light border for definition */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 #input-table tr {
@@ -136,9 +134,8 @@ button#filter-btn:hover {
     margin: 5px 0;
 }
 
-/* Data Display Table */
 #saved-data-container {
-    width: 90%;
+    width: fit-content;
     max-width: 800px;
     margin: 20px auto;
 }
@@ -156,21 +153,23 @@ button#filter-btn:hover {
 }
 
 #data-table, #materials-table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    margin: 20px auto;
     margin-top: 20px;
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for table */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #data-table th, #materials-table th {
     background-color: #0044cc;
     color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
     text-transform: uppercase;
     border: 1px solid #ddd ;
 }
@@ -178,9 +177,17 @@ button#filter-btn:hover {
 #data-table td, #materials-table td {
     padding: 12px;
     border: 1px solid #ddd;
-    text-align: center;
+    text-align: left;
     color: #555;
     font-weight: 400;
+}
+
+tr:nth-child(even) {
+    background-color:#f2f2f2;
+}
+#materials-table tbody tr:hover {
+    background-color: #ddd;
+    font-style: italic;
 }
 
 #materials-table.hidden {
@@ -211,10 +218,71 @@ button#filter-btn:hover {
     display: none;
 }
 
+td button.delete-btn {
+    width: fit-content;
+    font-size: 0.7rem;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+button.delete-btn:hover {
+    color: white;
+    background-color: #ea081f;
+
+}
+td button.edit-btn {
+    width: fit-content;
+    font-size: 0.7rem;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    border: none;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+button.edit-btn:hover {
+    color: white;
+    background-color: #083dea;
+}
+
+td {
+    font-size: 0.7rem;
+}
+
+#material-dropdown {
+    padding: 8px 12px;
+    width: fit-content;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #003b00;
+    transition: background-color 0.3s;
+}
+
+#material-dropdown:hover {
+    background-color: #ffffff;
+}
+
+#material-dropdown div:active {
+    background-color: #0ab1a4;
+    border-radius: 1rem;
+}
+
+
+#material-dropdown:last-child {
+    border-bottom: none;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        padding: 15px;
+        margin: 150px 0;
+        padding: 1rem;
     }
 
     div {
@@ -226,19 +294,29 @@ button#filter-btn:hover {
         margin-bottom: 5px;
     }
 
-    input[type="date"], input[type="text"], input[type="number"] {
+    input[type="date"] {
+        width: fit-content;
+    }
+
+    input[type="text"], input[type="number"] {
         width: 100%;
     }
 
     button {
-        width: 100%;
+        width: fit-content;
+        text-align: justify;
+        font-size: 0.7rem;
     }
 
     #input-table, #data-table, #materials-table {
         font-size: 0.9rem;
     }
+
+    #material-dropdown {
+        font-size: 0.9rem;
+    }
 }
 
-.hidden {
+.dropdown.hidden {
     display: none;
 }

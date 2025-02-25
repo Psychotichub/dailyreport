@@ -27,7 +27,6 @@ async function initTotalPrice() {
 
         monthlyReportTable.style.display = 'none';
         printButton.style.display = 'none';
-        exportPdfButton.style.display = 'none';
     };
 
     const displayReportForDateRange = async (selectedDateRange) => {
@@ -72,11 +71,9 @@ async function initTotalPrice() {
             if (data.length === 0) {
                 monthlyReportTable.style.display = 'none';
                 printButton.style.display = 'none';
-                exportPdfButton.style.display = 'none';
             } else {
                 monthlyReportTable.style.display = 'table';
                 printButton.style.display = 'inline-block';
-                exportPdfButton.style.display = 'inline-block';
             }
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);

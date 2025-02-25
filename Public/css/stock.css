@@ -9,12 +9,14 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 40px 0;
+  display: flex;
+  font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding: 2rem;
-  font-size: 1rem; /* Match text size */
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 h1{
@@ -101,6 +103,7 @@ h1{
   border: 1px solid #ddd;
   color: #555;
   font-weight: 400;
+  font-size: 0.7rem;
 }
 
 #stock tr:nth-child(even) {
@@ -118,6 +121,7 @@ h1{
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
+    margin: 150px 0;
     padding: 1rem;
   }
 

@@ -9,11 +9,12 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 40px 0;
+  display: flex;
+  font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  line-height: 1.6;
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1rem;
 }
 
@@ -116,8 +117,14 @@ input:focus, select:focus {
 }
 
 #submitted-table {
+  width: 90%;
   border-collapse: collapse;
-  width: fit-content;
+  margin: 20px auto;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #submitted-table th{
@@ -141,19 +148,10 @@ input:focus, select:focus {
 
 #submitted-table tr:hover {
   background-color: #dddddd;
+  color: blue;
 }
 
-#submitted-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 2rem 0;
-  background: white;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  text-align: left;
-}
+
 
 
 button.edit-btn, button.delete-btn {
@@ -186,6 +184,7 @@ button:hover {
 
 @media (max-width: 768px) {
   body {
+    margin: 150px 0;
     padding: 1rem;
   }
 
