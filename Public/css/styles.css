@@ -89,7 +89,7 @@ body {
   padding: 10px 20px;
   background-color: #282c34;
   color: white;
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   z-index: 1000;

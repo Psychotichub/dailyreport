@@ -18,7 +18,7 @@ body {
 h1 {
     text-align: center;
     font-size: 2.7rem;
-    color: #0044cc;
+    color: #3498db;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -52,7 +52,7 @@ h1 {
 
 input:focus {
     outline: none;
-    border-color: #0044cc;
+    border-color: #3498db;
     box-shadow: 0 0 8px rgba(0, 68, 204, 0.5);
 }
 
@@ -96,7 +96,7 @@ button.delete-btn:hover {
 }
 
 button.edit-btn:hover {
-    background-color: blue;
+    background-color: #3498db;
     color: white;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
@@ -110,6 +110,12 @@ button.edit-btn:hover {
 }
 
 #filter-btn:hover {
+    background-color: #00c853;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+button.print:hover {
     background-color: #00c853;
     color: white;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
@@ -168,7 +174,7 @@ button.edit-btn:hover {
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
-    color: #0044cc;
+    color: #3498db;
 }
 
 #data-table, #materials-table {
@@ -183,7 +189,7 @@ button.edit-btn:hover {
 }
 
 #data-table th, #materials-table th {
-    background-color: #0044cc;
+    background-color: blue;
     color: white;
     padding: 15px;
     text-align: left;
@@ -263,7 +269,7 @@ tr:nth-child(even) {
 
 #materials-table tbody tr:hover {
     background-color: #ddd;
-    color: blue;
+    color: #3498db;
 }
 
 /* Responsive Design */

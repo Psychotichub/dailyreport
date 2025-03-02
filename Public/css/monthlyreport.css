@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #2962ff;
-    --secondary-color: #448aff;
+    --primary-color: blue;
+    --secondary-color: #3498db;
     --success-color: #00c853;
     --danger-color: #d50000;
     --text-color: #2d3748;
@@ -29,7 +29,7 @@ body {
 h1 {
     text-align: center;
     font-size: 2.7rem;
-    color: #0044cc;
+    color: #3498db;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -45,7 +45,7 @@ h1 {
 }
 
 .clickable-date-range:hover {
-    color: rgb(55, 0, 255);
+    color: rgb(0, 179, 255);
     font-weight: bold;
 }
 
@@ -72,7 +72,7 @@ h1 {
 }
 
 #monthly-report th {
-    background-color: blue;
+    background-color: var(--primary-color);
     color: white;
     border: 1px solid #ddd;
     padding: 8px;
@@ -94,7 +94,7 @@ h1 {
 #monthly-report tbody tr:hover {
     background-color: #ddd;
     font-weight: bolder;
-    color: blue;
+    color: #3498db;
     cursor: pointer;
 }
 
@@ -103,7 +103,7 @@ h1 {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
-    color: #0044cc;
+    color: #3498db;
 }
 
 .hidden {

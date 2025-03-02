@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2962ff;
-    --secondary-color: #448aff;
+    --primary-color: blue;
+    --secondary-color: #3498db;
     --success-color: #00c853;
     --danger-color: #ff0202;
     --text-color: #2d3748;
@@ -22,7 +22,7 @@ body {
 h1{
     text-align: center;
     font-size: 2.7rem;
-    color: #0044cc;
+    color: #3498db;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -58,7 +58,7 @@ h1{
 #totalprice-table tr:hover {
     background-color: #ddd;
     font-weight: bolder;
-    color: blue;
+    color: #3498db;
 }
 
 #totalprice-table th {

@@ -36,10 +36,8 @@ body {
     margin-top: 5px;
 }
 
-
-/* Main Page Layout */
 #page {
-    padding: 40px 20px;
+    padding: 60px 20px;
     margin: 0 auto;
     max-width: 1200px;
     background: #ffffff;
@@ -47,7 +45,6 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Feature Section */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,8 +84,6 @@ body {
     border-color: #3498db;
 }
 
-
-/* Footer Section */
 #foot {
     margin-top: 50px;
     text-align: center;
@@ -104,31 +99,48 @@ body {
 }
 
 
-/* Buttons */
 button, .feature-card {
-    padding: 12px 25px;
-    font-size: 1em;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 8px;
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: bold;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
 }
 
 button:hover, .feature-card:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
 }
 
-button:focus {
-    outline: none;
+button:focus, .feature-card:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     #header h1 {
         font-size: 2.5em;
