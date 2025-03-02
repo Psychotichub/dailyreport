@@ -53,26 +53,41 @@ body {
   text-decoration: none;
   color: white;
   font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;  /* Smooth transition */
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #61dafb;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+  width: 100%;
 }
 
 .nav-menu a:hover {
+  text-shadow: 0 0 8px rgba(97, 218, 251, 0.8);
   color: #61dafb;
-  text-shadow: 0 0 8px #61dafb; /* Add glow effect */
-  text-decoration: underline; /* Add underline effect */
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 
 button {
   padding: 8px 16px;
-  font-size: 1rem; /* Match button size */
-  /* ...existing code... */
+  font-size: 1rem;
 }
 
 button:hover {
-  /* ...existing code... */
-  transform: scale(1.05); /* Match hover effect */
-}
+  transform: scale(1.05);}
 
 .footer {
   display: flex;
@@ -113,7 +128,14 @@ button:hover {
 }
 
 .social a:hover {
+  text-shadow: rgba(8, 251, 239, 0.3) 2px 8px 8px -5px;
   color: #61dafb;
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+  cursor: pointer;
+}
+.social a:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 
