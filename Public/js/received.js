@@ -197,12 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(`/received/date/${date}`);
             if (!response.ok) throw new Error('Failed to fetch received materials');
-            const dailyReports = await response.json();
+            const receivedMaterials = await response.json();
 
             const tableBody = materialsTable.querySelector('tbody');
             tableBody.innerHTML = '';
 
-            dailyReports.forEach((report) => {
+            receivedMaterials.forEach((report) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${report.materialName}</td>
@@ -216,8 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 tableBody.appendChild(row);
             });
 
-            showElement(materialsTable);
-            showElement(printButton);
+            if (receivedMaterials.length > 0) {
+                showElement(materialsTable);
+                showElement(printButton);
+            } else {
+                hideElement(materialsTable);
+                hideElement(printButton);
+            }
         } catch (error) {
             alert('Failed to fetch Received Materials.');
         }

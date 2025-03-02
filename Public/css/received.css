@@ -103,7 +103,7 @@ button.edit-btn:hover {
     transform: translate3d(0, 2px, 0);
 }
 
-.save-reoprt:hover {
+button.save-reoprt:hover {
     background-color: #00c853;
     color: white;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
@@ -111,6 +111,13 @@ button.edit-btn:hover {
 }
 
 #filter-btn:hover {
+    background-color: #00c853;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+button.print:hover {
     background-color: #00c853;
     color: white;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
@@ -161,10 +168,6 @@ button.edit-btn:hover {
     margin: 20px auto;
 }
 
-#saved-data-container.hidden {
-    display: none;
-}
-
 #saved-date {
     font-size: 1.1rem;
     font-weight: bold;
@@ -208,12 +211,9 @@ tr:nth-child(even) {
 }
 #materials-table tbody tr:hover {
     background-color: #ddd;
-    font-style: italic;
+    color: #0044cc;
 }
 
-#materials-table.hidden {
-    display: none;
-}
 
 .dropdown {
     position: absolute;

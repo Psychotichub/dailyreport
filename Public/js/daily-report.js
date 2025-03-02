@@ -223,9 +223,13 @@ function initDailyReport() {
                 `;
                 tableBody.appendChild(row);
             });
-
-            showElement(materialsTable);
-            showElement(printButton);
+            if (dailyReports.length > 0) {
+                showElement(materialsTable);
+                showElement(printButton);
+            } else {
+                hideElement(materialsTable);
+                hideElement(printButton);
+            }
         } catch (error) {
             console.error('Error fetching daily reports:', error);
             alert('Failed to fetch daily reports.');

@@ -81,14 +81,6 @@ body {
 }
 
 
-button {
-  padding: 8px 16px;
-  font-size: 1rem;
-}
-
-button:hover {
-  transform: scale(1.05);}
-
 .footer {
   display: flex;
   width: 100%;
