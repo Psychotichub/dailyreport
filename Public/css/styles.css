@@ -24,17 +24,15 @@ body {
   padding: 10px 20px;
   background-color: #282c34;
   color: white;
-  position: fixed; /* Fix the header at the top */
-  top: 0; /* Align it to the top */
-  left: 0; /* Align it to the left */
-  z-index: 1000; /* Ensure it stays above other elements */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  -webkit-animation: logo-animation 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: logo-animation 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
 .nav-menu {
@@ -54,7 +52,7 @@ body {
   color: white;
   font-size: 1rem;
   position: relative;
-  transition: all 0.3s ease;  /* Smooth transition */
+  transition: all 0.3s ease;
 }
 
 .nav-menu a::after {
@@ -76,6 +74,8 @@ body {
 .nav-menu a:hover {
   text-shadow: 0 0 8px rgba(97, 218, 251, 0.8);
   color: #61dafb;
+  font-size: 1.1rem;
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translateY(-2px);
   cursor: pointer;
 }
@@ -89,10 +89,10 @@ body {
   padding: 10px 20px;
   background-color: #282c34;
   color: white;
-  position: fixed; /* Fix the header at the top */
-  bottom: 0; /* Align it to the top */
-  left: 0; /* Align it to the left */
-  z-index: 1000; /* Ensure it stays above other elements */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .social {
