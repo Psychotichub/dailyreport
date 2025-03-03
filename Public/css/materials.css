@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 40px 0;
+  margin: 55px 0;
   display: flex;
   font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
@@ -21,7 +21,7 @@ body {
 h1{
   text-align: center;
   font-size: 2.7rem;
-  color: #0044cc;
+  color: var(--secondary-color);
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -112,39 +112,68 @@ input:focus, select:focus {
 }
 
 #submitted-table {
-  width: 90%;
-  border-collapse: collapse;
+  width: 100%;
+  max-width: 1200px;
   margin: 20px auto;
-  margin-top: 20px;
-  background-color: #fff;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-#submitted-table th{
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 1rem;
+#submitted-table thead {
+  background-color: #003366;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#submitted-table th, #submitted-table td {
+  padding: 12px 15px;
   text-align: left;
-  color: white;
-  background-color: #0044cc;
-}
-
-#submitted-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 0.7rem;
-  color: black
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 #submitted-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f1f6fb;
 }
 
 #submitted-table tr:hover {
-  background-color: #dddddd;
-  color: blue;
+  background-color: #e6f7ff;
+  transition: background-color 0.3s ease;
+}
+
+#submitted-table th {
+  position: sticky;
+  top: 0;
+  background-color: #003366;
+  z-index: 2;
+}
+
+#submitted-table td:nth-child(1) {
+  font-weight: bold;
+}
+
+#submitted-table td:nth-child(2),
+#submitted-table td:nth-child(3),
+#submitted-table td:nth-child(4) {
+  text-align: center;
+  color: #333;
+}
+
+#submitted-table td:nth-child(5) {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+#submitted-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 button {
