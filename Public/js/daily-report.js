@@ -14,6 +14,7 @@ function initDailyReport() {
     const materialsTable = document.getElementById('materials-table');
     const filterDateInput = document.getElementById('filter-date');
     const printButton = document.querySelector('.print');
+    const exportButton = document.querySelector('.export');
     const sendDataButton = document.querySelector('.send-data');
 
     const clearInputs = () => {
@@ -226,9 +227,11 @@ function initDailyReport() {
             if (dailyReports.length > 0) {
                 showElement(materialsTable);
                 showElement(printButton);
+                showElement(exportButton);
             } else {
                 hideElement(materialsTable);
                 hideElement(printButton);
+                hideElement(exportButton);
             }
         } catch (error) {
             console.error('Error fetching daily reports:', error);
@@ -272,14 +275,14 @@ function initDailyReport() {
                 const response = await fetch(`/daily-reports/${id}`, {
                     method: 'DELETE'
                 });
-                if (!response.ok) throw new Error('Failed to delete daily report');
-
-                alert('Daily report deleted successfully');
+                if (confirm('Are you sure you want to delete?')) {
+                    alert('Deleted successfully');
+                } else if (!response.ok) throw new Error('Failed to delete report');
 
                 fetchDailyReportsByDate(filterDateInput.value);
             } catch (error) {
-                console.error('Error deleting daily report:', error);
-                alert('Failed to delete daily report.');
+                console.error('Error deleting:', error);
+                alert('Failed to delete.');
             }
         }
     });
