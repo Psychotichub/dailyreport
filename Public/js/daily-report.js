@@ -121,7 +121,7 @@ function initDailyReport() {
             quantity: Number(quantity),
             unit,
             notes,
-            date: new Date(date).toLocaleDateString().split('T')[0]
+            date: new Date(date).toLocaleDateString('en-CA').split('T')[0]
         };
 
         try {
