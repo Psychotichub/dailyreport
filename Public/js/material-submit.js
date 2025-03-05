@@ -10,8 +10,10 @@ async function initMaterialSubmit() {
     const submittedTableBody = document.querySelector('#submitted-table tbody');
     const materialListDatalist = document.getElementById('material-list');
     const searchInput = document.getElementById('search-material-name');
-    const searchResult = document.getElementById('search-result');
-    const searchMaterialListDatalist = document.getElementById('search-material-list');
+    const searchForm = document.getElementById('search-form');
+    const searchDropdown = document.createElement('ul'); // Changed to 'ul' for consistency
+    searchDropdown.id = 'search-dropdown';
+    searchInput.parentNode.appendChild(searchDropdown);
 
     let materialsList = [];
 
@@ -108,30 +110,47 @@ async function initMaterialSubmit() {
         resetForm();
     });
 
-    searchInput.addEventListener('input', async () => {
-        const searchName = searchInput.value.trim();
-        if (!searchName) {
-            searchResult.innerHTML = '';
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim();
+        updateSearchDropdown(searchTerm);
+    });
+
+    function updateSearchDropdown(searchTerm) {
+        searchDropdown.innerHTML = '';
+        if (searchTerm.length === 0) {
             return;
         }
+        const filteredMaterials = materialsList.filter(material =>
+            material.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        filteredMaterials.forEach(material => {
+            const item = document.createElement('li');
+            item.textContent = material;
+            item.addEventListener('click', () => {
+                searchInput.value = material;
+                filterMaterials(material);
+                searchDropdown.innerHTML = '';
+            });
+            searchDropdown.appendChild(item);
+        });
+    }
 
-        try {
-            const response = await fetch(`/material-submit/search/${searchName}`);
-            const material = await response.json();
-
-            if (response.ok && material) {
-                searchResult.innerHTML = `
-                    <p>Material Name: ${material.materialName}</p>
-                    <p>Unit: ${material.unit}</p>
-                    <p>Material Price: ${material.materialPrice} €</p>
-                    <p>Labor Price: ${material.laborPrice} €</p>
-                `;
+    function filterMaterials(searchTerm) {
+        const rows = submittedTableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+            const materialName = row.querySelector('td').textContent.toLowerCase();
+            if (materialName.includes(searchTerm.toLowerCase())) {
+                row.style.display = '';
             } else {
-                searchResult.innerHTML = '<p>Material not found.</p>';
+                row.style.display = 'none';
             }
-        } catch (error) {
-            alert('Error searching material on server.');
-        }
+        });
+    }
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchTerm = searchInput.value.trim();
+        filterMaterials(searchTerm);
     });
 
     function addMaterialToTable({ materialName, unit, materialPrice, laborPrice }) {
@@ -187,32 +206,29 @@ async function initMaterialSubmit() {
 
     function updateMaterialList() {
         materialListDatalist.innerHTML = '';
-        searchMaterialListDatalist.innerHTML = '';
         materialsList.forEach(material => {
             const option = document.createElement('option');
             option.value = material;
             materialListDatalist.appendChild(option);
-            searchMaterialListDatalist.appendChild(option.cloneNode(true));
         });
     }
 
     materialNameInput.addEventListener('input', () => {
-        materialListDatalist.querySelector(`option[value="${materialNameInput.value}"]`);
-
         const query = materialNameInput.value.toLowerCase();
-        const filteredOptions = Array.from(materialListDatalist.options).filter(option =>
-            option.value.toLowerCase().includes(query)
+        const filteredOptions = materialsList.filter(material =>
+            material.toLowerCase().includes(query)
         );
 
         const dropdown = document.getElementById('material-dropdown');
         dropdown.innerHTML = '';
 
         if (filteredOptions.length > 0) {
-            filteredOptions.forEach(option => {
+            filteredOptions.forEach(material => {
                 const dropdownItem = document.createElement('div');
                 dropdownItem.className = 'dropdown-item';
-                dropdownItem.textContent = option.value;
+                dropdownItem.textContent = material;
                 dropdownItem.addEventListener('click', () => {
+                    materialNameInput.value = material;
                     dropdown.classList.add('hidden');
                 });
                 dropdown.appendChild(dropdownItem);

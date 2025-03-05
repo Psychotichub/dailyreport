@@ -6,6 +6,7 @@
     <title>Materials</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/materials.css">
+</head>
 <body>
     <div id="header-placeholder"></div>
     <h1>Material Data Entry</h1>
@@ -34,13 +35,11 @@
         </table>
         <button type="button" id="submit-btn">Submit</button>
 
-
         <h3>Search Material:</h3>
-        <input  id="search-material-name" placeholder="Enter material name to search" autocomplete="off">
-        <div id="search-material-dropdown" class="dropdown hidden"></div>
-        <datalist id="search-material-list">
-        </datalist>
-        <div id="search-result"></div>
+        <form id="search-form">
+            <input type="text" name="search-material-name" id="search-material-name" placeholder="Enter material name to search" autocomplete="off">
+            <div id="search-dropdown"></div>
+        </form>
 
         <!-- Submitted Data Table -->
         <h3>Submitted Data:</h3>
@@ -63,4 +62,5 @@
     <script src="/js/header.js"></script>
     <script src="/js/footer.js"></script>
     <script src="/js/material-submit.js"></script>
+</body>
 </html>

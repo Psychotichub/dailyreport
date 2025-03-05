@@ -82,6 +82,28 @@ input:focus, select:focus {
   transition: all 0.2s ease;
 }
 
+#search-dropdown {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  background-color: white;
+  width: fit-content;
+  z-index: 1000;
+}
+
+#search-dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#search-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
 .dropdown {
     position: absolute;
     background-color: white;
