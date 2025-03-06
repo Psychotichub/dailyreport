@@ -287,6 +287,16 @@ function initDailyReport() {
         }
     });
 
+     // Functionality to export data to Excel using xlsx library
+
+    exportButton.addEventListener('click', () => {
+        const table = document.getElementById('materials-table');
+        const tableClone = table.cloneNode(true);
+        tableClone.querySelectorAll('th:last-child, td:last-child').forEach(cell => cell.remove());
+        const wb = XLSX.utils.table_to_book(tableClone);
+        XLSX.writeFile(wb, `Daily_Report_${filterDateInput.value}.xlsx`);
+    });
+
     printButton.addEventListener('click', () => {
         const printWindow = window.open('', '', 'height=600,width=800');
         if (!printWindow) {
