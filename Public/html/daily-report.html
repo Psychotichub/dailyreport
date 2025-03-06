@@ -11,18 +11,20 @@
     <div id="header-placeholder"></div>
     <h1> Daily Report</h1>
 
+    <!-- Input Data Section -->
     <div id="date-container">
         <label for="date">Select Date: </label>
         <input type="date" id="date" name="date">
     </div>
 
+    <!-- Input Data Table -->
     <table id="input-table">
         <tr>
             <td>
                 <input type="text" id="material-name" name="material-name"  placeholder="Name of materials"  autocomplete="off">
                 <div id="material-dropdown" class="dropdown hidden"></div>
                 <datalist id="material-list">
-
+                    <!-- Predefined or dynamic material names will go here -->
                 </datalist>
             </td>
 
@@ -66,7 +68,7 @@
     </table>
 
     <button type="button" class="print hidden">Print</button>
-    <button type="button" class="export">Export</button>
+    <button type="button" class="export">Export</button> <!-- for excel -->
     </div>
 
     <div id="footer-placeholder"></div>

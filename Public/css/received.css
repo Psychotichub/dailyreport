@@ -177,33 +177,78 @@ button.print:hover {
 }
 
 #data-table, #materials-table {
-    width: 90%;
-    border-collapse: collapse;
+    width: 100%;
+    max-width: 1200px;
     margin: 20px auto;
-    margin-top: 20px;
-    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f9f9f9;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-#data-table th, #materials-table th {
-    background-color: blue;
-    color: white;
-    padding: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
+#data-table thead, #materials-table thead {
+    background-color: #003366;
+    color: #ffffff;
     text-transform: uppercase;
-    border: 1px solid #ddd ;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#data-table th, #materials-table th{
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 #data-table td, #materials-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
     text-align: left;
-    color: #555;
-    font-weight: 400;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#data-table tr:nth-child(even), #materials-table tr:nth-child(even) {
+    background-color: #f1f6fb;
+}
+
+#data-table tr:hover, #materials-table tr:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.3s ease;
+}
+
+#data-table th, #materials-table th {
+    position: sticky;
+    top: 0;
+    background-color: #003366;
+    z-index: 2;
+}
+
+#data-table td:nth-child(1), #materials-table td:nth-child(1) {
+    font-weight: bold;
+}
+
+#data-table td:nth-child(2),
+#data-table td:nth-child(3),
+#data-table td:nth-child(4),
+#materials-table td:nth-child(2),
+#materials-table td:nth-child(3),
+#materials-table td:nth-child(4) {
+    text-align: left;
+    color: #333;
+}
+
+#data-table td:nth-child(5), #materials-table td:nth-child(5) {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+#data-table td, #materials-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 tr:nth-child(even) {

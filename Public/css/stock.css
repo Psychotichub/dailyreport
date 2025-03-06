@@ -40,7 +40,6 @@ h1{
   transition: all 0.2s ease;
 }
 
-
 #search-dropdown {
     list-style-type: none;
     margin: 0;
@@ -64,40 +63,68 @@ h1{
 }
 
 #stock table {
-  width: 90%;
-  border-collapse: collapse;
+  width: 100%;
+  max-width: 1200px;
   margin: 20px auto;
-  text-align: left;
-  background-color: #fff;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-#stock th {
-  background-color: blue;
-  color: white;
-  padding: 15px;
-  font-weight: bold;
+#stock thead {
+  background-color: #003366;
+  color: #ffffff;
   text-transform: uppercase;
-  border: 1px solid #ddd;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-#stock td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  color: #555;
-  font-weight: 400;
-  font-size: 0.7rem;
+#stock th, #stock td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 #stock tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f1f6fb;
 }
 
 #stock tr:hover {
-    background-color: #ddd;
-    color: #3498db;
+  background-color: #e6f7ff;
+  transition: background-color 0.3s ease;
+}
+
+#stock th {
+  position: sticky;
+  top: 0;
+  background-color: #003366;
+  z-index: 2;
+}
+
+#stock td:nth-child(1) {
+  font-weight: bold;
+}
+
+#stock td:nth-child(2),
+#stock td:nth-child(3),
+#stock td:nth-child(4) {
+  text-align: left;
+  color: #333;
+}
+
+#stock td:nth-child(5) {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+#stock td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 button {
@@ -141,7 +168,6 @@ button:hover {
 button:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-
 
 .hidden {
   display: none !important;

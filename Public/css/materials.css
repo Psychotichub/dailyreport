@@ -183,7 +183,7 @@ input:focus, select:focus {
 #submitted-table td:nth-child(2),
 #submitted-table td:nth-child(3),
 #submitted-table td:nth-child(4) {
-  text-align: center;
+  text-align: left;
   color: #333;
 }
 

@@ -27,47 +27,69 @@ h1{
     font-weight: 600;
 }
 
-
 #totalprice-table {
-    width: 90%;
-    border-collapse: collapse;
+    width: 100%;
+    max-width: 1200px;
     margin: 20px auto;
-    text-align: left;
-    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f9f9f9;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-#totalprice-table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    font-size: 1rem;
+#totalprice-table thead {
+    background-color: #003366;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-#totalprice-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    font-size: 0.7rem;
+#totalprice-table th, #totalprice-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 #totalprice-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f1f6fb;
 }
 
 #totalprice-table tr:hover {
-    background-color: #ddd;
-    font-weight: bolder;
-    color: #3498db;
+    background-color: #e6f7ff;
+    transition: background-color 0.3s ease;
 }
 
 #totalprice-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: var(--primary-color);
-    color: white;
-    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    background-color: #003366;
+    z-index: 2;
+}
+
+#totalprice-table td:nth-child(1) {
+    font-weight: bold;
+}
+
+#totalprice-table td:nth-child(2),
+#totalprice-table td:nth-child(3),
+#totalprice-table td:nth-child(4) {
+    text-align: center;
+    color: #333;
+}
+
+#totalprice-table td:nth-child(5) {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+#totalprice-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #note {
@@ -122,7 +144,6 @@ button:hover {
 .button:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
