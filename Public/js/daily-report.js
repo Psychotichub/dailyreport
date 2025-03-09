@@ -293,7 +293,56 @@ function initDailyReport() {
         const table = document.getElementById('materials-table');
         const tableClone = table.cloneNode(true);
         tableClone.querySelectorAll('th:last-child, td:last-child').forEach(cell => cell.remove());
-        const wb = XLSX.utils.table_to_book(tableClone);
+
+        // Create workbook and worksheet
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.table_to_sheet(tableClone);
+
+        //styles
+        const headerStyle = {
+            font: { bold: true, color: { rgb: "000000" }, sz: 12 },
+            fill: { fgColor: { rgb: "CCCCCC" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: {
+                top: { style: "thin" },
+                bottom: { style: "thin" },
+                left: { style: "thin" },
+                right: { style: "thin" }
+            }
+        };
+
+        const cellStyle = {
+            font: { color: { rgb: "000000" }, sz: 11 },
+            alignment: { horizontal: "left", vertical: "center" },
+            border: {
+                top: { style: "thin" },
+                bottom: { style: "thin" },
+                left: { style: "thin" },
+                right: { style: "thin" }
+            }
+        };
+
+        // Get worksheet range
+        const range = XLSX.utils.decode_range(ws['!ref']);
+
+        // Apply styles to cells
+        for (let row = range.s.r; row <= range.e.r; row++) {
+            for (let col = range.s.c; col <= range.e.c; col++) {
+                const cellAddress = XLSX.utils.encode_cell({ r: row, c: col });
+                if (!ws[cellAddress]) continue;
+
+                ws[cellAddress].s = row === 0 ? headerStyle : cellStyle;
+            }
+        }
+
+        // Set column widths
+        ws['!cols'] = [
+            { wch: 20 }, // Material Name
+            { wch: 15 }, // Quantity
+            { wch: 30 }  // Notes
+        ];
+
+        XLSX.utils.book_append_sheet(wb, ws, 'Daily Report');
         XLSX.writeFile(wb, `Daily_Report_${filterDateInput.value}.xlsx`);
     });
 
